@@ -9,12 +9,14 @@ getGitHubData();
 async function getGitHubData(userName) {
   const queryUrl = `https://api.github.com/users/${userName}`;
   try {
-    const { data } = await axios.get(
-      queryUrl
-    );
-
-    console.log(data);
-  
+    const { data: {email, avatar_url } } = await axios.get(queryUrl);
+    // console.log(data);
+    return {
+      email,
+      avatar_url,
+    }
+      // console.log(email)
+      // console.log(avatar_url)
   } catch (err) {
     console.log(err);
   }
