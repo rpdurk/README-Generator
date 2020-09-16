@@ -1,7 +1,12 @@
 // require "inquirer" is called to run the prompt in the command line
 const inquirer = require('inquirer');
+// require api call
+const { api } = require('./utils/api.js');
+// require generate markdown from markdown writeFileAsync
+const { generateReadMe } = require('./utils/generateMarkdown.js');
 // require "fs" needed to write the file
 const fs = require('fs');
+
 
 const questions = [
     {
@@ -20,11 +25,11 @@ const questions = [
         name: 'description',
         message: 'Please describe the  project!',
     },
-    // {
-    //     type: 'input',
-    //     name: 'tableOfContents',
-    //     message: '',
-    // },
+    {
+        type: 'input',
+        name: 'tableOfContents',
+        message: '',
+    },
     {
         type: 'input',
         name: 'installationGuide',
@@ -49,7 +54,8 @@ const questions = [
 
 // prompt user the above questions. These will be incorporated into the README
 const prompt = function() {
-    inquirer.prompt(questions);
+    // must return the answers from the user, to be utilized in the README
+    return inquirer.prompt(questions)
 };
 
 // initiate user information and README creation.
@@ -58,18 +64,19 @@ const init = async function(){
     try {
         // wait for the prompt function to be ran
         const userAnswers = await prompt()
+        // console.log(userAnswers);
         // utilize the prompt function to create a response including the username
         username = userAnswers.username;
-        console.log(username);
+        // console.log(username);
+        // create a variable to hold the api call function in -this will return the github data
+        const response = await api(username);
         // generate readMe
-        // const generateReadMe = generateReadMe(userAnswers);
-        // writeFileAsync("README.MD", generateReadMe);
-        // console.log("README successfully generated.")
+        const writeReadMe = generateReadMe(response);
+        writeFileAsync("README.MD", writeReadMe);
+        console.log("README successfully generated.")
     } catch (err){
         console.log(err)
     }
 };
 
 init();
-
-module.exports = username;

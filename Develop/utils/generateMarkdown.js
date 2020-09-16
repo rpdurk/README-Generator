@@ -1,12 +1,12 @@
-function generateMarkdown(data) {
+const generateReadMe = function generateMarkdown(response) {
   return `
 <div align="center">
 
-# ${data.title}
+# ${response.avatar_url}
 
-URL of the deployed application: ${data.}
+URL of the deployed application:
 
-URL of the GitHub repository: ${data.}
+URL of the GitHub repository: 
 
 </div>
 
@@ -22,24 +22,24 @@ URL of the GitHub repository: ${data.}
 
 ## Description
 
-${data.}
+
 
 ## Installation
 
-${data.}
+
 
 ## View
 
-To view the website, you can click [here](${data.}).
+To view the website, you can click [here]().
 
 ## Usage and Key Features
 
-${data.}
+
 
 ## License 
 
-${data.}
+
 `;
 }
 
-module.exports = generateMarkdown;
+module.exports = { generateReadMe };

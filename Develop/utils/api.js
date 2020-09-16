@@ -1,58 +1,13 @@
 const axios = require('axios');
-const userName = "rpdurk";
 
-const queryUrl = `https://api.github.com/users/${userName}`;
-
-
-getGitHubData();
-
-async function getGitHubData(userName) {
-  const queryUrl = `https://api.github.com/users/${userName}`;
-  try {
-    const { data: {email, avatar_url } } = await axios.get(queryUrl);
-    // console.log(data);
-    return {
-      email,
-      avatar_url,
-    }
-      // console.log(email)
-      // console.log(avatar_url)
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-// const axios = require('axios');
-// const api = {
-//   getUser(username) {
-//     axios.get(queryUrl).
-//       then(function (github) {
-//         console.log(github.data)
-//         const url = github.data.avatar_url;
-//         const email = github.data.email;
-//       })
-//     return
-//     url
-//     email;
-//   }
-// };
-
-
-const api = {
-  getUser(userName) {
-    const queryUrl = `https://api.github.com/users/${userName}`;
-    axios.get(queryUrl)
-      .then(function ({ data }) {
-        console.log(data);
-      });
-  }
+const api = async function getGitHubData() {
+  // const queryUrl = `https://api.github.com/users/${userName}`;
+  const response = await axios.get(`https://api.github.com/users/${username}`)
+    .then(function (response) {
+      console.log(response);
+    });
+  return response;
 };
 
-// module.exports = api;
-
-
-// const axios = require('axios');
-// const api = {
-//   getUser(username) {
-//   }
-// };
+// need to deconstruct the variable for the API call
+module.exports = { api };
