@@ -1,12 +1,8 @@
-const generateReadMe = function generateMarkdown(response) {
+const generateReadMe = function generateMarkdown(userAnswers, response) {
   return `
 <div align="center">
 
-# ${response.avatar_url}
-
-URL of the deployed application:
-
-URL of the GitHub repository: 
+# ${userAnswers.title}
 
 </div>
 
@@ -16,28 +12,36 @@ URL of the GitHub repository:
 * [Installation](#installation)
 * [View](#view)
 * [Usage](#usage)
-* [Built With](#built-with)
 * [Credits](#credits)
 * [License](#license)
 
 ## Description
 
-
+${userAnswers.description}
 
 ## Installation
 
-
+${userAnswers.installation}
 
 ## View
 
-To view the website, you can click [here]().
+To view the website, you can click [here](${userAnswers.url}).
 
-## Usage and Key Features
+## Usage
 
+${userAnswers.usage}
 
+## Credits 
+
+${userAnswers.credits}
+
+To contact the author, please email:
+${response.email}
+${response.avatarUrl}
 
 ## License 
 
+${userAnswers.license}
 
 `;
 }

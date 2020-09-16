@@ -6,6 +6,10 @@ const { api } = require('./utils/api.js');
 const { generateReadMe } = require('./utils/generateMarkdown.js');
 // require "fs" needed to write the file
 const fs = require('fs');
+// require "util" needed to write the file
+const util = require('util');
+// to shorten writeFile make into a const
+const writeFileAsync = util.promisify(fs.writeFile);
 
 
 const questions = [
@@ -13,6 +17,11 @@ const questions = [
         type: 'input',
         name: 'username',
         message: 'Please enter your github username.',
+    },
+    {
+        type: 'input',
+        name: 'title',
+        message: 'Please enter your project title.',
     },
     {
         type: 'list',
@@ -27,8 +36,8 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'tableOfContents',
-        message: '',
+        name: 'url',
+        message: 'Please enter the url to the deployed app.',
     },
     {
         type: 'input',
@@ -37,7 +46,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'Usage',
+        name: 'usage',
         message: 'Please, describe how you use this product.',
     },
     {
@@ -71,7 +80,7 @@ const init = async function(){
         // create a variable to hold the api call function in -this will return the github data
         const response = await api(username);
         // generate readMe
-        const writeReadMe = generateReadMe(response);
+        const writeReadMe = generateReadMe(userAnswers, response);
         writeFileAsync("README.MD", writeReadMe);
         console.log("README successfully generated.")
     } catch (err){
