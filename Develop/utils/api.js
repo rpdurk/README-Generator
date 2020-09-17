@@ -4,7 +4,7 @@ const api = async function getGitHubData() {
   // const queryUrl = `https://api.github.com/users/${userName}`;
   const response = await axios.get(`https://api.github.com/users/${username}`)
     .then(function (response) {
-      console.log(response);
+      // console.log(response);
     });
   return response;
 };

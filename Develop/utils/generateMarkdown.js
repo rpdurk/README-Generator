@@ -1,4 +1,5 @@
 const generateReadMe = function generateMarkdown(userAnswers, response) {
+  console.log(response);
   return `
 <div align="center">
 
@@ -36,8 +37,6 @@ ${userAnswers.usage}
 ${userAnswers.credits}
 
 To contact the author, please email:
-${response.email}
-${response.avatarUrl}
 
 ## License 
 

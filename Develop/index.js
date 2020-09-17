@@ -26,7 +26,7 @@ const questions = [
     {
         type: 'list',
         name: 'badges',
-        message: 'Please select any badges you would like.',
+        message: 'Please select a badge you would like.',
         choices: ["A", "B", "C", "D"]
     },
     {
@@ -79,7 +79,8 @@ const init = async function(){
         // console.log(username);
         // create a variable to hold the api call function in -this will return the github data
         const response = await api(username);
-        // generate readMe
+        console.log(response);
+        // generate readMe by passing in prompt()answers and api response
         const writeReadMe = generateReadMe(userAnswers, response);
         writeFileAsync("README.MD", writeReadMe);
         console.log("README successfully generated.")
