@@ -13,8 +13,10 @@ const generateReadMe = function generateMarkdown(userAnswers, response) {
 * [Installation](#installation)
 * [View](#view)
 * [Usage](#usage)
-* [Credits](#credits)
+* [Contributors](#Contributors)
 * [License](#license)
+* [Tests](#Tests)
+* [Questions](#Questions)
 
 ## Description
 
@@ -34,16 +36,19 @@ ${userAnswers.usage}
 
 ## Credits 
 
-${userAnswers.credits}
-
-To contact the author, please email:
-${response.email}
-![Profile Picture](${response.avatar_url})
-
+${userAnswers.contributors}
 
 ## License 
 
 ![badge](https://img.shields.io/badge/license-${userAnswers.license}-brightred)<br />
+
+## Tests 
+
+## Questions
+
+To contact the author, please email:
+${response.email}
+![Profile Picture](${response.avatar_url})
 
 `;
 }

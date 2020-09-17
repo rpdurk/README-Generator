@@ -2,11 +2,7 @@
 
 # ReadMe Generator
 
-Built with  javascript & 
-
-URL of the deployed application: https://rpdurk.github.io/README-Generator/
-
-URL of the GitHub repository: https://github.com/rpdurk/README-Generator
+Built with  javascript.
 
 </div>
 
@@ -38,3 +34,7 @@ In this application, the user can generate a preformatted ReadMe by answering qu
 ## License 
 
 MIT License Copyright (c)  Ryan Durk
+
+<p><img src="assets/picture.jpg"width="300"/></p>
+
+<!-- ![Profile Picture](assets/picture.jpg) -->

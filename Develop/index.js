@@ -51,7 +51,7 @@ const questions = [
             "Academic",
             "MIT",
             "Mozilla",
-            "Open"
+            "Open",
         ]
     },
     {
