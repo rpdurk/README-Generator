@@ -24,12 +24,6 @@ const questions = [
         message: 'Please enter your project title.',
     },
     {
-        type: 'list',
-        name: 'badges',
-        message: 'Please select a badge you would like.',
-        choices: ["A", "B", "C", "D"]
-    },
-    {
         type: 'input',
         name: 'description',
         message: 'Please describe the  project!',
@@ -50,9 +44,15 @@ const questions = [
         message: 'Please, describe how you use this product.',
     },
     {
-        type: 'input',
-        name: 'license',
-        message: 'If this app has a license, please describe which.',
+        type: "list",
+        name: "license",
+        message: "Which license should be added to this project?",
+        choices: [
+            "Academic",
+            "MIT",
+            "Mozilla",
+            "Open"
+        ]
     },
     {
         type: 'input',
@@ -79,10 +79,10 @@ const init = async function(){
         // console.log(username);
         // create a variable to hold the api call function in -this will return the github data
         const response = await api(username);
-        console.log(response);
+        // console.log("inside init index in 84", response);
         // generate readMe by passing in prompt()answers and api response
         const writeReadMe = generateReadMe(userAnswers, response);
-        writeFileAsync("README.MD", writeReadMe);
+        await writeFileAsync("README.MD", writeReadMe);
         console.log("README successfully generated.")
     } catch (err){
         console.log(err)

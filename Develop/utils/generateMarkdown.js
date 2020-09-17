@@ -1,5 +1,5 @@
 const generateReadMe = function generateMarkdown(userAnswers, response) {
-  console.log(response);
+  // console.log("inside generate markdown",response);
   return `
 <div align="center">
 
@@ -37,10 +37,13 @@ ${userAnswers.usage}
 ${userAnswers.credits}
 
 To contact the author, please email:
+${response.email}
+![Profile Picture](${response.avatar_url})
+
 
 ## License 
 
-${userAnswers.license}
+![badge](https://img.shields.io/badge/license-${userAnswers.license}-brightred)<br />
 
 `;
 }
