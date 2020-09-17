@@ -35,6 +35,4 @@ In this application, the user can generate a preformatted ReadMe by answering qu
 
 MIT License Copyright (c)  Ryan Durk
 
-<p><img src="assets/picture.jpg"width="300"/></p>
-
-<!-- ![Profile Picture](assets/picture.jpg) -->
+![Profile Picture](Develop/utils/assets/picture.jpg)
